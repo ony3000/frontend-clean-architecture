@@ -1,12 +1,12 @@
 import { Cart } from './cart';
-import { totalPrice } from './product';
+import { Product, totalPrice } from './product';
 import { User } from './user';
 
 export type OrderStatus = 'new' | 'delivery' | 'completed';
 
 export type Order = {
   user: UniqueId;
-  cart: Cart;
+  products: Product[];
   created: DateTimeString;
   status: OrderStatus;
   total: PriceCents;
@@ -18,8 +18,8 @@ export function createOrder(
   created: DateTimeString,
 ): Order {
   return {
-    cart,
     user: user.id,
+    products: cart.products,
     status: 'new',
     created,
     total: totalPrice(cart.products),
