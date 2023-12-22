@@ -1,5 +1,3 @@
-> Other languages: [Russian](https://github.com/bespoyasov/frontend-clean-architecture/blob/master/docs/ru.md).
-
 # Frontend Clean Architecture
 
 A React + TypeScript example app built using the clean architecture in a functional(-ish) way.
@@ -30,6 +28,7 @@ async function orderProducts(user: User, { products }: Cart) {
 
   // ...
 }
+
 ```
 
 ### Use Case Testability
@@ -48,12 +47,13 @@ type Dependencies = {
 async function orderProducts(
   user: User,
   cart: Cart,
-  dependencies: Dependencies = defaultDependencies
+  dependencies: Dependencies = defaultDependencies,
 ) {
   const { notifier, payment, orderStorage } = dependencies;
 
   // ...
 }
+
 ```
 
 Hook would then become an adapter:
@@ -86,6 +86,7 @@ export function useAuthenticate() {
 
   // ...
 }
+
 ```
 
 In a good way, this should be automated and done through the dependency injection. But in the case of React and hooks, we can use them as a “container” that returns an implementation of the specified interface.
