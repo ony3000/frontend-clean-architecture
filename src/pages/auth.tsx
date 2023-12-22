@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
-import { Front } from '@/ui/Front';
+import { Auth } from '@/ui/Auth';
 import { Header } from '@/ui/Header';
 
-export default function IndexPage() {
+export default function AuthPage() {
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function IndexPage() {
           lg:px-20 lg:py-24"
       >
         <Header />
-        <Front />
+        <Auth />
       </div>
     </>
   );

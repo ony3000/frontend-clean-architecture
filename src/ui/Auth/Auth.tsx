@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/router'
 
 import { UserName } from "../../domain/user";
 import { useAuthenticate } from "../../application/authenticate";
 import styles from "./Auth.module.css";
 
 export function Auth() {
+  const router = useRouter();
   const [name, setName] = useState<UserName>("");
   const [email, setEmail] = useState<Email>("");
   const [loading, setLoading] = useState(false);
 
   const { user, authenticate } = useAuthenticate();
-  if (!!user) return <Redirect to="/" />;
 
   async function handleSubmit(e: React.FormEvent) {
     setLoading(true);
@@ -19,6 +19,16 @@ export function Auth() {
 
     await authenticate(name, email);
     setLoading(false);
+  }
+
+  useEffect(() => {
+    if (!!user) {
+      router.replace('/');
+    }
+  }, [router, user]);
+
+  if (!!user) {
+    return null;
   }
 
   return (
