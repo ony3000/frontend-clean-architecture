@@ -1,7 +1,8 @@
-import { totalPrice } from "../../domain/product";
-import { useCartStorage } from "../../services/storageAdapter";
-import { Cookie } from "../Cookie";
-import styles from "./Cart.module.css";
+import styles from './Cart.module.css';
+
+import { totalPrice } from '../../domain/product';
+import { useCartStorage } from '../../services/storageAdapter';
+import { Cookie } from '../Cookie';
 
 export function Cart() {
   const { cart } = useCartStorage();

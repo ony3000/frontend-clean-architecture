@@ -1,7 +1,8 @@
-import { Product } from "../../domain/product";
-import { useStore } from "../../services/store";
-import { Cookie } from "../Cookie";
-import styles from "./Front.module.css";
+import styles from './Front.module.css';
+
+import { Product } from '../../domain/product';
+import { useStore } from '../../services/store';
+import { Cookie } from '../Cookie';
 
 export function Front() {
   const { cookies } = useStore();

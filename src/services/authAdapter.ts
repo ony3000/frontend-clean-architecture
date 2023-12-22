@@ -1,7 +1,6 @@
-import { UserName } from "../domain/user";
-
-import { AuthenticationService } from "../application/ports";
-import { fakeApi } from "./api";
+import { AuthenticationService } from '../application/ports';
+import { UserName } from '../domain/user';
+import { fakeApi } from './api';
 
 export function useAuth(): AuthenticationService {
   return {
@@ -9,9 +8,9 @@ export function useAuth(): AuthenticationService {
       return fakeApi({
         name,
         email,
-        id: "sample-user-id",
-        allergies: ["cocoa", "cherry"],
-        preferences: ["marshmallow", "peanuts"],
+        id: 'sample-user-id',
+        allergies: ['cocoa', 'cherry'],
+        preferences: ['marshmallow', 'peanuts'],
       });
     },
   };

@@ -1,10 +1,10 @@
-import { contains } from "../../domain/cart";
-import { Product } from "../../domain/product";
-import { useAddToCart } from "../../application/addToCart";
+import styles from './Cookie.module.css';
 
-import { useUserStorage, useCartStorage } from "../../services/storageAdapter";
-import styles from "./Cookie.module.css";
-import { Toppings } from "./Toppings";
+import { useAddToCart } from '../../application/addToCart';
+import { contains } from '../../domain/cart';
+import { Product } from '../../domain/product';
+import { useUserStorage, useCartStorage } from '../../services/storageAdapter';
+import { Toppings } from './Toppings';
 
 type CookieProps = {
   cookie: Product;
@@ -22,7 +22,10 @@ export function Cookie({ cookie }: CookieProps) {
       <Toppings cookie={cookie} />
 
       {!!user && (
-        <button type="button" onClick={() => addToCart(user, cookie)}>
+        <button
+          type="button"
+          onClick={() => addToCart(user, cookie)}
+        >
           {cookie.price / 100} ₽
         </button>
       )}

@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { useOrderProducts } from "../../application/orderProducts";
-import { UserName } from "../../domain/user";
-import { useCartStorage, useUserStorage } from "../../services/storageAdapter";
-import styles from "./Buy.module.css";
+import styles from './Buy.module.css';
+
+import React, { useState } from 'react';
+
+import { useOrderProducts } from '../../application/orderProducts';
+import { UserName } from '../../domain/user';
+import { useCartStorage, useUserStorage } from '../../services/storageAdapter';
 
 export function Buy() {
   const { orderProducts } = useOrderProducts();
   const { user } = useUserStorage();
   const { cart } = useCartStorage();
 
-  const [name, setName] = useState<UserName>(user?.name ?? "");
-  const [email, setEmail] = useState<Email>(user?.email ?? "");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState<UserName>(user?.name ?? '');
+  const [email, setEmail] = useState<Email>(user?.email ?? '');
+  const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
 
   if (!user || !cart.products.length) return null;
@@ -26,7 +28,10 @@ export function Buy() {
   return (
     <section>
       <h2>Checkout</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit}
+      >
         <label>
           <span>Name</span>
           <input
@@ -55,8 +60,11 @@ export function Buy() {
           ></textarea>
         </label>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Preparing an order..." : "Checkout"}
+        <button
+          type="submit"
+          disabled={loading}
+        >
+          {loading ? 'Preparing an order...' : 'Checkout'}
         </button>
       </form>
     </section>

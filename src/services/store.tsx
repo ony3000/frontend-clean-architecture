@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useContext } from "react";
-import { cookies } from "./fakeData";
+import React, { useState } from 'react';
+import { useContext } from 'react';
+
+import { cookies } from './fakeData';
 
 const StoreContext = React.createContext<any>({});
 export const useStore = () => useContext(StoreContext);

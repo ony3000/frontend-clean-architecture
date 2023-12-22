@@ -1,1 +1,1 @@
-type Ingredient = "chocolate" | "peanuts" | "cocoa" | "marshmallow" | "cherry";
+type Ingredient = 'chocolate' | 'peanuts' | 'cocoa' | 'marshmallow' | 'cherry';

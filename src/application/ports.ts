@@ -1,6 +1,6 @@
-import { Cart } from "../domain/cart";
-import { Order } from "../domain/order";
-import { User, UserName } from "../domain/user";
+import { Cart } from '../domain/cart';
+import { Order } from '../domain/order';
+import { User, UserName } from '../domain/user';
 
 export interface UserStorageService {
   user?: User;

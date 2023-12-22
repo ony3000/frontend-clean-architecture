@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from 'next/router'
+import styles from './Auth.module.css';
 
-import { UserName } from "../../domain/user";
-import { useAuthenticate } from "../../application/authenticate";
-import styles from "./Auth.module.css";
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
+
+import { useAuthenticate } from '../../application/authenticate';
+import { UserName } from '../../domain/user';
 
 export function Auth() {
   const router = useRouter();
-  const [name, setName] = useState<UserName>("");
-  const [email, setEmail] = useState<Email>("");
+  const [name, setName] = useState<UserName>('');
+  const [email, setEmail] = useState<Email>('');
   const [loading, setLoading] = useState(false);
 
   const { user, authenticate } = useAuthenticate();
@@ -32,7 +33,10 @@ export function Auth() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+    >
       <label>
         <span>Name</span>
         <input
@@ -53,8 +57,11 @@ export function Auth() {
         />
       </label>
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Trying to login..." : "Login"}
+      <button
+        type="submit"
+        disabled={loading}
+      >
+        {loading ? 'Trying to login...' : 'Login'}
       </button>
     </form>
   );

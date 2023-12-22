@@ -1,6 +1,8 @@
-import Link from 'next/link'
-import { useCartStorage, useUserStorage } from "../../services/storageAdapter";
-import styles from "./Header.module.css";
+import styles from './Header.module.css';
+
+import Link from 'next/link';
+
+import { useCartStorage, useUserStorage } from '../../services/storageAdapter';
 
 export function Header() {
   const { user } = useUserStorage();
@@ -8,7 +10,10 @@ export function Header() {
 
   return (
     <header className={styles.header}>
-      <Link className={styles.logo} href="/">
+      <Link
+        className={styles.logo}
+        href="/"
+      >
         Co0o0o0o0okie!!!1 🍪
       </Link>
 

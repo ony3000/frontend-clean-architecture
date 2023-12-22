@@ -1,9 +1,9 @@
-import { currentDatetime } from "../lib/datetime";
-import { totalPrice } from "./product";
-import { Cart } from "./cart";
-import { User } from "./user";
+import { currentDatetime } from '../lib/datetime';
+import { Cart } from './cart';
+import { totalPrice } from './product';
+import { User } from './user';
 
-export type OrderStatus = "new" | "delivery" | "completed";
+export type OrderStatus = 'new' | 'delivery' | 'completed';
 
 export type Order = {
   user: UniqueId;
@@ -17,7 +17,7 @@ export function createOrder(user: User, cart: Cart): Order {
   return {
     cart,
     user: user.id,
-    status: "new",
+    status: 'new',
     created: currentDatetime(),
     total: totalPrice(cart.products),
   };

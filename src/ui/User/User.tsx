@@ -1,10 +1,11 @@
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router'
-import { useUserStorage } from "../../services/storageAdapter";
-import { Buy } from "../Buy";
-import { Cart } from "../Cart";
-import { Orders } from "../Orders";
-import { Profile } from "../Profile";
+
+import { useUserStorage } from '../../services/storageAdapter';
+import { Buy } from '../Buy';
+import { Cart } from '../Cart';
+import { Orders } from '../Orders';
+import { Profile } from '../Profile';
 
 export function User() {
   const router = useRouter();
