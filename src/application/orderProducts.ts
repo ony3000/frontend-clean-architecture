@@ -1,6 +1,7 @@
 import { Cart } from '../domain/cart';
 import { createOrder } from '../domain/order';
 import { User } from '../domain/user';
+import { dateTimeSource } from '../services/dateTimeAdapter';
 import { useNotifier } from '../services/notificationAdapter';
 // Note that the port interfaces are in the _application layer_,
 // but their implementation is in the _adapter_ layer.
@@ -23,7 +24,8 @@ export function useOrderProducts() {
   async function orderProducts(user: User, cart: Cart) {
     // Here we can validate the data before creating the order.
 
-    const order = createOrder(user, cart);
+    const createdOn = dateTimeSource.currentDatetime();
+    const order = createOrder(user, cart, createdOn);
 
     // The use case function doesn't call third-party services directly,
     // instead, it relies on the interfaces we declared earlier.
