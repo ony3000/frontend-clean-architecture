@@ -29,3 +29,11 @@ export interface NotificationService {
 export interface PaymentService {
   tryPay(amount: PriceCents): Promise<boolean>;
 }
+
+export interface OrderProductsService {
+  orderProducts(user: User, cart: Cart): Promise<void>;
+}
+
+export interface DateTimeService {
+  currentDatetime(): DateTimeString;
+}

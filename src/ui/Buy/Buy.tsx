@@ -2,8 +2,8 @@ import styles from './Buy.module.css';
 
 import React, { useState } from 'react';
 
-import { useOrderProducts } from '../../application/orderProducts';
 import { UserName } from '../../domain/user';
+import { useOrderProducts } from '../../services/orderProductsAdapter';
 import { useCartStorage, useUserStorage } from '../../services/storageAdapter';
 
 export function Buy() {
